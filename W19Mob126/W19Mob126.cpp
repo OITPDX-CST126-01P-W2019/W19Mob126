@@ -1,21 +1,57 @@
 // W19Mob126.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+//  We are playing the mob programming game from Willem Larsen:
+//		https://github.com/willemlarsen/mobprogrammingrpg
+//  We are playing tic-tac-toe or noughts and crosses  https://en.wikipedia.org/wiki/Tic-tac-toe
 
 #include "pch.h"
 #include <iostream>
+using namespace std;
+
+const int WIN = 1;
+const int LOSE = 2;
+const int DRAW = 3;
+
+const char BLANK{ '-' };
+const char EX { 'X' };
+const char OH { 'O' };
+
+const int BOARD_SIZE = 3;
+
+void start_game(char GameBoard[][BOARD_SIZE]);
+void print_game(const char GameBoard[][BOARD_SIZE]);
+// void play_round(char GameBoard[][BOARD_SIZE]);
+//int get_game_status(const gar  GameBoard[][BOARD_SIZE]);
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	char GameBoard[3][3] {'-'};
+
+	start_game(GameBoard);
+	print_game(GameBoard);
+   
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+void print_game(const char GameBoard[][BOARD_SIZE])
+{
+	for (int r = 0; r < BOARD_SIZE; r++) {
+		cout << " ";
+		for (int c = 0; c < BOARD_SIZE; c++) {
+			cout << GameBoard[r][c];
+			if (c < (BOARD_SIZE -1))
+				cout << " | ";
+		}
+		if (r < (BOARD_SIZE - 1))
+			cout << endl << "-----------" << endl;
+		else
+			cout << endl;
+	}
+}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+void start_game(char GameBoard[][BOARD_SIZE])
+{
+	for (int r = 0; r < BOARD_SIZE; r++) 
+		for (int c = 0; c < BOARD_SIZE; c++)
+			GameBoard[r][c] = BLANK;
+	
+}
