@@ -6,13 +6,9 @@
 
 #include "pch.h"
 #include <iostream>
+#include "TicTacToe.h"
 using namespace std;
 
-
-const char EX { 'X' };
-const char OH { 'O' };
-
-const int BOARD_SIZE = 3;
 
 void start_game(char GameBoard[][BOARD_SIZE]);
 void print_game(const char GameBoard[][BOARD_SIZE]);
@@ -23,23 +19,27 @@ bool check_draw(const char  GameBoard[][BOARD_SIZE]);
 void get_row_col(int move, int & row, int & col);
 bool ok_move(const char GameBoard[][BOARD_SIZE], int move);
 
+
 int main()
 {
-	char GameBoard[3][3];
+	// char GameBoard[3][3];
+	ttt GameBoard{};
 
-	start_game(GameBoard);
+	start_game(GameBoard.gb);
 	
-	while (!check_winner(GameBoard) && !check_draw(GameBoard))
+	while (!check_winner(GameBoard.gb) && !check_draw(GameBoard.gb))
 	{
-		play_round(GameBoard);
+		play_round(GameBoard.gb);
 	}
 
-	if (check_winner(GameBoard))
+	if (check_winner(GameBoard.gb))
 		cout << "We've got a winner" << endl;
-	else if (check_draw(GameBoard))
+	else if (check_draw(GameBoard.gb))
 		cout << "It's A Draw!" << endl;
+	else
+		cout << "Huston we've got a problem." << endl;
 
-	print_game(GameBoard);
+	print_game(GameBoard.gb);
    
 }
 
