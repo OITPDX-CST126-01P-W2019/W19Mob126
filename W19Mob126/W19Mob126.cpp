@@ -32,12 +32,14 @@ int main()
 		play_round(GameBoard.gb);
 	}
 
+	cout << "=====================" << endl;
 	if (check_winner(GameBoard.gb))
 		cout << "We've got a winner" << endl;
 	else if (check_draw(GameBoard.gb))
 		cout << "It's A Draw!" << endl;
 	else
 		cout << "Huston we've got a problem." << endl;
+	cout << "=====================" << endl;
 
 	print_game(GameBoard.gb);
    
@@ -100,10 +102,10 @@ bool check_draw(const char  GameBoard[][BOARD_SIZE])
 			if (GameBoard[r][c] == EX || GameBoard[r][c] == OH)
 				count++;
 
-	if (count < (BOARD_SIZE * BOARD_SIZE))
-		return false;
-	else
+	if (count == BOARD_SIZE * BOARD_SIZE)
 		return true;
+	else
+		return false;
 }
 
 void get_row_col(int move, int & row, int & col)
