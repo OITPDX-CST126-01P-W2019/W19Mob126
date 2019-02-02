@@ -38,7 +38,7 @@ int main()
 	else if (check_draw(GameBoard.gb))
 		cout << "It's A Draw!" << endl;
 	else
-		cout << "Huston we've got a problem." << endl;
+		cout << "Houston we've got a problem." << endl;
 	cout << "=====================" << endl;
 
 	print_game(GameBoard.gb);
@@ -124,7 +124,7 @@ void get_row_col(int move, int & row, int & col)
 
 bool ok_move(const char GameBoard[][BOARD_SIZE],int move)
 {
-	if(move < 1 || move > 9)
+	if (move < 1 || move > 9)
 	{
 		cout << "Pick a space between 1 & 9" << endl;
 		return false;
